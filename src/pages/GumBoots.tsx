@@ -71,46 +71,6 @@ const GumBoots = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-surface">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
-              Superior Gum Boot Features
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Engineered for extreme conditions and demanding environments
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Droplets className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">100% Waterproof</h3>
-              <p className="text-muted-foreground">Complete protection against water, chemicals, and liquids</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Chemical Resistant</h3>
-              <p className="text-muted-foreground">Resistant to acids, oils, and industrial chemicals</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Thermometer className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Temperature Resistant</h3>
-              <p className="text-muted-foreground">Performs in extreme hot and cold conditions</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Products Section */}
       <section id="products" className="py-20">
         <div className="container mx-auto px-4">
@@ -168,6 +128,46 @@ const GumBoots = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-surface">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
+              Superior Gum Boot Features
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Engineered for extreme conditions and demanding environments
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Droplets className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">100% Waterproof</h3>
+              <p className="text-muted-foreground">Complete protection against water, chemicals, and liquids</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Chemical Resistant</h3>
+              <p className="text-muted-foreground">Resistant to acids, oils, and industrial chemicals</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Thermometer className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Temperature Resistant</h3>
+              <p className="text-muted-foreground">Performs in extreme hot and cold conditions</p>
+            </div>
           </div>
         </div>
       </section>

@@ -71,46 +71,6 @@ const SafetyShoes = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-surface">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
-              Why Choose Our Safety Shoes?
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Industry-leading protection meets uncompromising comfort
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Shield className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Maximum Protection</h3>
-              <p className="text-muted-foreground">Steel toe caps, puncture-resistant soles, and comprehensive foot protection</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Zap className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Electrical Safety</h3>
-              <p className="text-muted-foreground">Electrical hazard protection and anti-static properties for safe operation</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Droplets className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">All-Weather Ready</h3>
-              <p className="text-muted-foreground">Water-resistant, oil-resistant, and slip-resistant for any condition</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Products Section */}
       <section id="products" className="py-20">
         <div className="container mx-auto px-4">
@@ -168,6 +128,46 @@ const SafetyShoes = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-surface">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
+              Why Choose Our Safety Shoes?
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Industry-leading protection meets uncompromising comfort
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Shield className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Maximum Protection</h3>
+              <p className="text-muted-foreground">Steel toe caps, puncture-resistant soles, and comprehensive foot protection</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Zap className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Electrical Safety</h3>
+              <p className="text-muted-foreground">Electrical hazard protection and anti-static properties for safe operation</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Droplets className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">All-Weather Ready</h3>
+              <p className="text-muted-foreground">Water-resistant, oil-resistant, and slip-resistant for any condition</p>
+            </div>
           </div>
         </div>
       </section>

@@ -71,46 +71,6 @@ const SchoolShoes = () => {
         </div>
       </section>
 
-      {/* Features Section */}
-      <section className="py-20 bg-surface">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
-              Perfect School Shoes for Every Student
-            </h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Comfortable, durable, and designed for active school life
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <GraduationCap className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">School Approved</h3>
-              <p className="text-muted-foreground">Meets school dress code requirements and standards</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Heart className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Comfort First</h3>
-              <p className="text-muted-foreground">Designed for all-day comfort during school hours</p>
-            </div>
-            
-            <div className="text-center">
-              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
-                <Star className="h-8 w-8 text-primary" />
-              </div>
-              <h3 className="text-xl font-semibold mb-2">Long Lasting</h3>
-              <p className="text-muted-foreground">Built to withstand daily wear and active use</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Products Section */}
       <section id="products" className="py-20">
         <div className="container mx-auto px-4">
@@ -168,6 +128,46 @@ const SchoolShoes = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Features Section */}
+      <section className="py-20 bg-surface">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-4">
+              Perfect School Shoes for Every Student
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Comfortable, durable, and designed for active school life
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <GraduationCap className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">School Approved</h3>
+              <p className="text-muted-foreground">Meets school dress code requirements and standards</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Heart className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Comfort First</h3>
+              <p className="text-muted-foreground">Designed for all-day comfort during school hours</p>
+            </div>
+            
+            <div className="text-center">
+              <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8 text-primary" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">Long Lasting</h3>
+              <p className="text-muted-foreground">Built to withstand daily wear and active use</p>
+            </div>
           </div>
         </div>
       </section>
