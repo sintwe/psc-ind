@@ -4,6 +4,7 @@ import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Users, Target, Award, Truck, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import productCollection from '@/assets/product-collection.jpg';
 
 const About = () => {
@@ -181,7 +182,7 @@ const About = () => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg" asChild>
-              <a href="#contact">Send Inquiry</a>
+              <Link to="/contact">Send Inquiry</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <a href="tel:+919876543210">Call Now: +91 98765 43210</a>

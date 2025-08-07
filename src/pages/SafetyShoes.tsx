@@ -5,6 +5,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Zap, Droplets, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import safetyShoes from '@/assets/safety-shoes-hero.jpg';
 import productCollection from '@/assets/product-collection.jpg';
 
@@ -121,8 +122,8 @@ const SafetyShoes = () => {
                       </div>
                     </div>
                     
-                    <Button className="w-full" variant="outline">
-                      Send Inquiry
+                    <Button className="w-full" variant="outline" asChild>
+                      <Link to="/contact">Send Inquiry</Link>
                     </Button>
                   </div>
                 </CardContent>

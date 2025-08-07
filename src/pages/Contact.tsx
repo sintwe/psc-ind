@@ -83,23 +83,30 @@ const Contact = () => {
             </Card>
           </div>
 
-          {/* Contact Form and Map */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-            <div>
-              <h2 className="text-2xl font-poppins font-bold text-primary mb-6">
-                Send Your Inquiry
-              </h2>
-              <InquiryForm />
-            </div>
+        </div>
 
-            <div>
-              <h2 className="text-2xl font-poppins font-bold text-primary mb-6">
-                Find Us Here
-              </h2>
-              <div className="bg-gray-200 rounded-lg h-96 flex items-center justify-center">
-                <p className="text-muted-foreground">Google Maps Integration</p>
-              </div>
-            </div>
+        {/* Inquiry Form */}
+        <InquiryForm />
+
+        {/* Map Section */}
+        <div className="container mx-auto px-4 py-20">
+          <div className="text-center mb-8">
+            <h2 className="text-2xl font-poppins font-bold text-primary mb-4">
+              Find Us Here
+            </h2>
+            <p className="text-muted-foreground">Visit our office for direct business discussions</p>
+          </div>
+          <div className="max-w-4xl mx-auto">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14005.534855674806!2d77.20296635000001!3d28.646923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfce26ec085ef%3A0x441e32f4fa5002fb!2sSector%205%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1704262800000!5m2!1sen!2sin"
+              width="100%"
+              height="400"
+              style={{ border: 0, borderRadius: '12px' }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Paras Sales Corporation Location"
+            ></iframe>
           </div>
         </div>
       </section>
