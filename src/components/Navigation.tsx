@@ -40,24 +40,7 @@ const Navigation = () => {
             </Link>
           </div>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                to={item.href}
-                className={`text-sm font-medium transition-colors duration-200 ${
-                  location.pathname === item.href 
-                    ? 'text-primary border-b-2 border-primary' 
-                    : 'text-foreground hover:text-primary'
-                }`}
-              >
-                {item.name}
-              </Link>
-            ))}
-          </div>
-
-          {/* Contact Info & Mobile Menu */}
+          {/* Mobile-Style Menu for All Devices */}
           <div className="flex items-center space-x-4">
             <div className="hidden lg:flex items-center space-x-4 text-sm text-muted-foreground">
               <div className="flex items-center space-x-1">
@@ -70,9 +53,9 @@ const Navigation = () => {
               </div>
             </div>
 
-            {/* Mobile Menu */}
+            {/* Menu Button for All Devices */}
             <Sheet>
-              <SheetTrigger asChild className="md:hidden">
+              <SheetTrigger asChild>
                 <Button variant="ghost" size="sm">
                   <Menu className="h-5 w-5" />
                 </Button>
