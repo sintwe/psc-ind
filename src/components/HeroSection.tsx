@@ -1,6 +1,8 @@
+
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import safetyShoes from '@/assets/safety-shoes-hero.jpg';
 import gumBoots from '@/assets/gum-boots-hero.jpg';
 import schoolShoes from '@/assets/school-shoes-hero.jpg';
@@ -13,7 +15,7 @@ const slides = [
     title: 'Built for Protection. Designed for Comfort.',
     subtitle: 'Premium industrial safety footwear for all working environments',
     cta: 'Explore Safety Shoes',
-    href: '#safety-shoes'
+    href: '/safety-shoes'
   },
   {
     id: 2,
@@ -22,7 +24,7 @@ const slides = [
     title: 'Ultimate Protection Against Elements.',
     subtitle: 'Waterproof, slip-resistant boots for challenging conditions',
     cta: 'Explore Gum Boots',
-    href: '#gum-boots'
+    href: '/gum-boots'
   },
   {
     id: 3,
@@ -31,7 +33,7 @@ const slides = [
     title: 'Quality Footwear for Growing Minds.',
     subtitle: 'Durable, comfortable school shoes built to last',
     cta: 'Explore School Shoes',
-    href: '#school-shoes'
+    href: '/school-shoes'
   }
 ];
 
@@ -96,10 +98,10 @@ const HeroSection = () => {
               className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3 rounded-lg group"
               asChild
             >
-              <a href={slides[currentSlide].href}>
+              <Link to={slides[currentSlide].href}>
                 {slides[currentSlide].cta}
                 <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </a>
+              </Link>
             </Button>
             
             <Button 
@@ -108,7 +110,7 @@ const HeroSection = () => {
               className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-3 rounded-lg"
               asChild
             >
-              <a href="#contact">Send Inquiry</a>
+              <Link to="/contact">Send Inquiry</Link>
             </Button>
           </div>
         </div>

@@ -1,7 +1,9 @@
+
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Eye, MessageSquare } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import productCollection from '@/assets/product-collection.jpg';
 
 const products = [
@@ -110,9 +112,12 @@ const BestSellers = () => {
                       <Button
                         size="sm"
                         className="bg-success text-success-foreground hover:bg-success/90"
+                        asChild
                       >
-                        <MessageSquare className="h-4 w-4 mr-2" />
-                        Inquire
+                        <Link to="/contact">
+                          <MessageSquare className="h-4 w-4 mr-2" />
+                          Inquire
+                        </Link>
                       </Button>
                     </div>
                   </div>
@@ -142,8 +147,9 @@ const BestSellers = () => {
                   <Button 
                     className="w-full" 
                     variant="outline"
+                    asChild
                   >
-                    Send Inquiry
+                    <Link to="/contact">Send Inquiry</Link>
                   </Button>
                 </div>
               </CardContent>
@@ -158,7 +164,7 @@ const BestSellers = () => {
             className="px-8 py-3 bg-primary hover:bg-primary-hover"
             asChild
           >
-            <a href="#contact">View All Products</a>
+            <Link to="/contact">View All Products</Link>
           </Button>
         </div>
       </div>
