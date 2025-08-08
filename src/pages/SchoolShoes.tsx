@@ -47,28 +47,31 @@ const SchoolShoes = () => {
       
       {/* Hero Section */}
       <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16">
-        <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20 z-10" />
         <img
           src={schoolShoes}
           alt="School Shoes"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-center"
         />
-        <div className="relative z-20 container mx-auto px-4 text-center text-white">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-poppins font-bold mb-4">
-            School Shoes
-          </h1>
-          <p className="text-lg sm:text-xl md:text-2xl mb-6 max-w-2xl mx-auto">
-            Quality Footwear for Growing Minds
-          </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-primary hover:bg-white/90"
-            asChild
-          >
-            <a href="#products">
-              View Products <ArrowRight className="ml-2 h-5 w-5" />
-            </a>
-          </Button>
+        
+        {/* Text Overlay with Blurred Background */}
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="text-center text-white px-6 py-8 rounded-2xl bg-black/30 backdrop-blur-sm border border-white/20 max-w-2xl mx-4">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-4">
+              School Shoes
+            </h1>
+            <p className="text-lg sm:text-xl md:text-xl mb-6">
+              Quality Footwear for Growing Minds
+            </p>
+            <Button 
+              size="lg" 
+              className="bg-white text-primary hover:bg-white/90"
+              asChild
+            >
+              <a href="#products">
+                View Products <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+          </div>
         </div>
       </section>
 
