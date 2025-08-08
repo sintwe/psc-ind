@@ -46,7 +46,7 @@ const SafetyShoes = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden mt-16">
+      <section className="relative h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden mt-16">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20 z-10" />
         <img
           src={safetyShoes}
@@ -54,10 +54,10 @@ const SafetyShoes = () => {
           className="w-full h-full object-cover"
         />
         <div className="relative z-20 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-4">
+          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-poppins font-bold mb-4">
             Safety Shoes
           </h1>
-          <p className="text-xl md:text-2xl mb-6 max-w-2xl mx-auto">
+          <p className="text-lg sm:text-xl md:text-2xl mb-6 max-w-2xl mx-auto">
             Built for Protection. Designed for Comfort.
           </p>
           <Button 
