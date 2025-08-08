@@ -55,7 +55,7 @@ const SafetyShoes = () => {
         
         {/* Text Overlay with Blurred Background */}
         <div className="absolute inset-0 flex items-center justify-center z-20">
-          <div className="text-center text-white px-6 py-8 rounded-2xl bg-black/30 backdrop-blur-sm border border-white/20 max-w-2xl mx-4">
+          <div className="text-center text-white px-8 py-6 rounded-2xl bg-white/10 backdrop-blur-md border border-white/30 max-w-xl mx-4 shadow-2xl">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-4">
               Safety Shoes
             </h1>
