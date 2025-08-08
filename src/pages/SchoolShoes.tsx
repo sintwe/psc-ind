@@ -46,7 +46,7 @@ const SchoolShoes = () => {
       <Navigation />
       
       {/* Hero Section */}
-      <section className="relative h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden mt-16">
+      <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16">
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-black/20 z-10" />
         <img
           src={schoolShoes}
