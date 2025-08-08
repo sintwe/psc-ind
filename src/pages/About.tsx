@@ -12,23 +12,32 @@ const About = () => {
     <div className="min-h-screen">
       <Navigation />
       
-      {/* Hero Section */}
-      <section className="relative h-96 flex items-center justify-center overflow-hidden mt-16 bg-gradient-to-br from-primary/10 to-secondary/10">
-        <div className="relative z-20 container mx-auto px-4 text-center">
-          <h1 className="text-4xl md:text-6xl font-poppins font-bold mb-4 text-primary">
-            About Paras Sales Corporation
-          </h1>
-          <p className="text-xl md:text-2xl mb-6 max-w-3xl mx-auto text-muted-foreground">
-            Your Trusted Partner in Industrial & Institutional Footwear Solutions
-          </p>
+      {/* Enhanced Hero Section */}
+      <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16 hero-gradient">
+        <div className="absolute inset-0 flex items-center justify-center z-20">
+          <div className="text-center text-white px-8 py-6 rounded-2xl glass-effect max-w-xl mx-4 shadow-hero animate-fade-in-up">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-4">
+              About Paras Sales Corporation
+            </h1>
+            <p className="text-lg sm:text-xl md:text-xl mb-6">
+              15+ Years of Excellence in Industrial Footwear
+            </p>
+            <Button 
+              size="lg" 
+              className="btn-secondary"
+              asChild
+            >
+              <a href="#story">Our Story</a>
+            </Button>
+          </div>
         </div>
       </section>
 
-      {/* Company Overview */}
-      <section className="py-20">
+      {/* Enhanced Company Overview */}
+      <section id="story" className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <div className="animate-fade-in-up">
               <h2 className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-6">
                 Our Story
               </h2>

@@ -61,7 +61,7 @@ const products = [
 
 const BestSellers = () => {
   return (
-    <section className="py-20 bg-surface">
+    <section className="py-20 surface-gradient relative overflow-hidden">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 animate-fade-in-up">
@@ -78,7 +78,7 @@ const BestSellers = () => {
           {products.map((product, index) => (
             <Card 
               key={product.id} 
-              className={`product-card group animate-fade-in-up animate-stagger-${Math.min(index + 1, 4)}`}
+              className={`product-card group animate-fade-in-up animate-stagger-${Math.min(index + 1, 4)} hover-glow`}
             >
               <CardContent className="p-0">
                 {/* Image Container */}
@@ -95,7 +95,7 @@ const BestSellers = () => {
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-64 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                   />
                   
                   {/* Hover Overlay */}
@@ -161,7 +161,7 @@ const BestSellers = () => {
         <div className="text-center mt-16 animate-fade-in-up animate-stagger-4">
           <Button 
             size="lg" 
-            className="px-8 py-3 bg-primary hover:bg-primary-hover"
+            className="btn-primary"
             asChild
           >
             <Link to="/contact">View All Products</Link>

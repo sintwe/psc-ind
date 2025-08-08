@@ -75,11 +75,11 @@ const HeroSection = () => {
         </div>
       ))}
 
-      {/* Content */}
+      {/* Enhanced Content */}
       <div className="relative z-20 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
-          <div className="mb-4">
-            <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-sm font-medium border border-white/30">
+          <div className="mb-6">
+            <span className="inline-block px-6 py-3 glass-effect rounded-full text-sm font-medium shadow-glow hover-scale transition-bounce">
               {slides[currentSlide].category}
             </span>
           </div>
@@ -92,10 +92,10 @@ const HeroSection = () => {
             {slides[currentSlide].subtitle}
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90 font-semibold px-8 py-3 rounded-lg group"
+              className="btn-primary group shadow-hero"
               asChild
             >
               <Link to={slides[currentSlide].href}>
@@ -105,9 +105,8 @@ const HeroSection = () => {
             </Button>
             
             <Button 
-              variant="outline" 
               size="lg"
-              className="border-white text-white hover:bg-white hover:text-primary font-semibold px-8 py-3 rounded-lg"
+              className="btn-secondary glass-effect"
               asChild
             >
               <Link to="/contact">Send Inquiry</Link>
@@ -116,10 +115,10 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Navigation Arrows */}
+      {/* Enhanced Navigation Arrows */}
       <button
         onClick={prevSlide}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-30 p-4 rounded-full glass-effect text-white hover-scale transition-bounce shadow-button"
         aria-label="Previous slide"
       >
         <ChevronLeft className="h-6 w-6" />
@@ -127,20 +126,22 @@ const HeroSection = () => {
       
       <button
         onClick={nextSlide}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-white/20 backdrop-blur-sm text-white hover:bg-white/30 transition-colors"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-30 p-4 rounded-full glass-effect text-white hover-scale transition-bounce shadow-button"
         aria-label="Next slide"
       >
         <ChevronRight className="h-6 w-6" />
       </button>
 
-      {/* Slide Indicators */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-2">
+      {/* Enhanced Slide Indicators */}
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 flex space-x-3">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
-            className={`w-3 h-3 rounded-full transition-all duration-300 ${
-              index === currentSlide ? 'bg-white' : 'bg-white/50'
+            className={`w-3 h-3 rounded-full transition-all duration-500 hover-scale ${
+              index === currentSlide 
+                ? 'bg-white shadow-glow scale-125' 
+                : 'bg-white/50 hover:bg-white/75'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />

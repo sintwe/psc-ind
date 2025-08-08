@@ -49,11 +49,11 @@ const WhyChooseUs = () => {
             return (
               <Card 
                 key={index} 
-                className={`text-center border-0 shadow-elegant hover-lift animate-fade-in-up animate-stagger-${index + 1}`}
+                className={`text-center border-0 shadow-elegant hover-lift hover-glow animate-fade-in-up animate-stagger-${index + 1} glass-card`}
               >
                 <CardContent className="p-8">
-                  {/* Icon */}
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-accent rounded-lg mb-6">
+                  {/* Enhanced Icon */}
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-accent to-accent-hover rounded-xl mb-6 shadow-button hover-scale transition-bounce">
                     <IconComponent className="h-8 w-8 text-primary" />
                   </div>
                   
@@ -76,8 +76,8 @@ const WhyChooseUs = () => {
           })}
         </div>
 
-        {/* Bottom Stats */}
-        <div className="mt-20 bg-accent rounded-2xl p-8 md:p-12 animate-fade-in-up animate-stagger-4">
+        {/* Enhanced Bottom Stats */}
+        <div className="mt-20 bg-gradient-to-br from-accent to-accent-hover rounded-3xl p-8 md:p-12 animate-fade-in-up animate-stagger-4 shadow-elegant hover-glow transition-smooth">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div>
               <div className="text-3xl md:text-4xl font-poppins font-bold text-primary mb-2">

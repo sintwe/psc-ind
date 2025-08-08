@@ -56,7 +56,7 @@ const InquiryForm = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-surface">
+    <section id="contact" className="py-20 surface-gradient relative overflow-hidden">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
@@ -72,7 +72,7 @@ const InquiryForm = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {/* Contact Info */}
             <div className="lg:col-span-1 space-y-6 animate-fade-in-up animate-stagger-1">
-              <Card className="border-0 shadow-elegant">
+              <Card className="border-0 shadow-elegant glass-card hover-glow transition-smooth">
                 <CardHeader>
                   <CardTitle className="flex items-center text-primary">
                     <Phone className="h-5 w-5 mr-2" />
@@ -103,7 +103,7 @@ const InquiryForm = () => {
                 </CardContent>
               </Card>
 
-              <Card className="border-0 shadow-elegant bg-accent">
+              <Card className="border-0 shadow-elegant bg-gradient-to-br from-accent to-accent-hover hover-glow transition-smooth">
                 <CardContent className="p-6">
                   <div className="flex items-center text-primary mb-3">
                     <CheckCircle className="h-5 w-5 mr-2" />
@@ -121,7 +121,7 @@ const InquiryForm = () => {
 
             {/* Inquiry Form */}
             <div className="lg:col-span-2 animate-fade-in-up animate-stagger-2">
-              <Card className="border-0 shadow-elegant">
+              <Card className="border-0 shadow-elegant glass-card hover-glow transition-smooth">
                 <CardHeader>
                   <CardTitle className="text-primary">Send Inquiry</CardTitle>
                 </CardHeader>
@@ -217,7 +217,7 @@ const InquiryForm = () => {
                     <Button 
                       type="submit" 
                       disabled={isSubmitting}
-                      className="w-full bg-primary hover:bg-primary-hover text-primary-foreground font-semibold py-3"
+                      className="btn-primary w-full py-3"
                     >
                       {isSubmitting ? (
                         <>
