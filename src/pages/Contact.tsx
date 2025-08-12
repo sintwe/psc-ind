@@ -33,9 +33,9 @@ const Contact = () => {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Our Location</h3>
                 <p className="text-muted-foreground text-sm">
-                  Industrial Area, Sector 5<br />
-                  New Delhi - 110001<br />
-                  India
+                  9, Khatipura Main Road<br />
+                  Madhu's Pravesh, Indore<br />
+                  Madhya Pradesh - 452007
                 </p>
               </CardContent>
             </Card>
@@ -47,9 +47,9 @@ const Contact = () => {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Phone Number</h3>
                 <p className="text-muted-foreground text-sm">
-                  +91 98765 43210<br />
-                  +91 87654 32109<br />
-                  Toll Free: 1800-123-4567
+                  +91 83494 94982<br />
+                  Main Contact Line<br />
+                  Available During Business Hours
                 </p>
               </CardContent>
             </Card>
@@ -75,9 +75,9 @@ const Contact = () => {
                 </div>
                 <h3 className="text-lg font-semibold mb-2">Business Hours</h3>
                 <p className="text-muted-foreground text-sm">
-                  Mon - Fri: 9:00 AM - 6:00 PM<br />
-                  Saturday: 9:00 AM - 2:00 PM<br />
-                  Sunday: Closed
+                  Monday - Sunday<br />
+                  12:00 PM - 8:00 PM<br />
+                  70+ Years of Experience
                 </p>
               </CardContent>
             </Card>
@@ -98,14 +98,14 @@ const Contact = () => {
           </div>
           <div className="max-w-4xl mx-auto">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d14005.534855674806!2d77.20296635000001!3d28.646923!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cfce26ec085ef%3A0x441e32f4fa5002fb!2sSector%205%2C%20New%20Delhi%2C%20Delhi!5e0!3m2!1sen!2sin!4v1704262800000!5m2!1sen!2sin"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.1234567890!2d75.8577!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdcc344eaaaab%3A0x2fff2ec2ace5cd49!2sKhatipura%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1704262800000!5m2!1sen!2sin"
               width="100%"
               height="400"
               style={{ border: 0, borderRadius: '12px' }}
               allowFullScreen
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
-              title="Paras Sales Corporation Location"
+              title="Paras Sales Corporation - Khatipura, Indore Location"
             ></iframe>
           </div>
         </div>

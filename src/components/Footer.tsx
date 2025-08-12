@@ -38,14 +38,15 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-primary-foreground/80" />
                 <div className="text-sm">
-                  <p>123 Industrial Area, Sector 45</p>
-                  <p>Gurgaon, Haryana - 122003</p>
+                  <p>9, Khatipura Main Road</p>
+                  <p>Madhu's Pravesh, Indore</p>
+                  <p>Madhya Pradesh - 452007</p>
                 </div>
               </div>
               
               <div className="flex items-center space-x-3">
                 <Phone className="h-5 w-5 text-primary-foreground/80" />
-                <span className="text-sm">+91 98765 43210</span>
+                <span className="text-sm">+91 83494 94982</span>
               </div>
               
               <div className="flex items-center space-x-3">
@@ -93,8 +94,9 @@ const Footer = () => {
               <div>
                 <h5 className="text-sm font-medium mb-2">Business Hours</h5>
                 <p className="text-sm text-primary-foreground/80">
-                  Monday - Saturday<br />
-                  9:00 AM - 6:00 PM
+                  Monday - Sunday<br />
+                  12:00 PM - 8:00 PM<br />
+                  70+ Years Experience
                 </p>
               </div>
               

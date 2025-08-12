@@ -45,11 +45,12 @@ const About = () => {
                 Established with a vision to provide premium quality industrial and institutional footwear, 
                 Paras Sales Corporation has emerged as a leading <strong>ISI & BIS certified</strong> B2B supplier across India. 
                 We specialize in safety shoes, gum boots, and school shoes, serving diverse industries and educational institutions.
+                With over <strong>70+ years of experience</strong> in the footwear industry, we are your trusted partner for all footwear needs.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
-                With years of experience in the footwear industry, we understand the critical importance 
+                Located in the heart of Indore at Khatipura Main Road, we understand the critical importance 
                 of quality, durability, and comfort. Our products are designed to meet the highest 
-                standards of safety and performance.
+                standards of safety and performance, backed by decades of industry expertise.
               </p>
               <Button size="lg" asChild>
                 <a href="#contact">
@@ -194,7 +195,7 @@ const About = () => {
               <Link to="/contact">Send Inquiry</Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
-              <a href="tel:+919876543210">Call Now: +91 98765 43210</a>
+              <a href="tel:+918349494982">Call Now: +91 83494 94982</a>
             </Button>
           </div>
         </div>

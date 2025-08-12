@@ -51,7 +51,7 @@ const InquiryForm = () => {
 
   const handleWhatsAppClick = () => {
     const message = `Hi! I'm interested in your industrial footwear products. Please share more details.`;
-    const whatsappUrl = `https://wa.me/919876543210?text=${encodeURIComponent(message)}`;
+    const whatsappUrl = `https://wa.me/918349494982?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
 
@@ -82,7 +82,7 @@ const InquiryForm = () => {
                 <CardContent className="space-y-4">
                   <div>
                     <Label className="text-sm font-medium text-muted-foreground">Phone</Label>
-                    <p className="text-lg font-semibold">+91 98765 43210</p>
+                    <p className="text-lg font-semibold">+91 83494 94982</p>
                   </div>
                   <div>
                     <Label className="text-sm font-medium text-muted-foreground">Email</Label>
@@ -90,7 +90,7 @@ const InquiryForm = () => {
                   </div>
                   <div>
                     <Label className="text-sm font-medium text-muted-foreground">Business Hours</Label>
-                    <p className="text-sm">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                    <p className="text-sm">Mon - Sun: 12:00 PM - 8:00 PM</p>
                   </div>
                   
                   <Button 
