@@ -43,8 +43,8 @@ const About = () => {
               </h2>
               <p className="text-lg text-muted-foreground mb-6">
                 Established with a vision to provide premium quality industrial and institutional footwear, 
-                Paras Sales Corporation has emerged as a leading B2B supplier across India. We specialize 
-                in safety shoes, gum boots, and school shoes, serving diverse industries and educational institutions.
+                Paras Sales Corporation has emerged as a leading <strong>ISI & BIS certified</strong> B2B supplier across India. 
+                We specialize in safety shoes, gum boots, and school shoes, serving diverse industries and educational institutions.
               </p>
               <p className="text-lg text-muted-foreground mb-6">
                 With years of experience in the footwear industry, we understand the critical importance 
@@ -160,8 +160,8 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-4xl font-bold mb-2">500+</div>
-              <div className="text-primary-foreground/80">Happy Clients</div>
+              <div className="text-4xl font-bold mb-2">1000+</div>
+              <div className="text-primary-foreground/80">Dealer Network</div>
             </div>
             <div>
               <div className="text-4xl font-bold mb-2">50+</div>

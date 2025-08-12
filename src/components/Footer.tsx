@@ -105,25 +105,6 @@ const Footer = () => {
                 </p>
               </div>
               
-              <div>
-                <h5 className="text-sm font-medium mb-3">Follow Us</h5>
-                <div className="flex space-x-3">
-                  <a
-                    href="#"
-                    className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
-                    aria-label="LinkedIn"
-                  >
-                    <Linkedin className="h-4 w-4" />
-                  </a>
-                  <a
-                    href="#"
-                    className="p-2 bg-primary-foreground/10 rounded-lg hover:bg-primary-foreground/20 transition-colors"
-                    aria-label="Instagram"
-                  >
-                    <Instagram className="h-4 w-4" />
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </div>
