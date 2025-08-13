@@ -2,6 +2,7 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import InquiryForm from '@/components/InquiryForm';
+import MapboxMap from '@/components/MapboxMap';
 import { Card, CardContent } from '@/components/ui/card';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
@@ -88,7 +89,7 @@ const Contact = () => {
         {/* Inquiry Form */}
         <InquiryForm />
 
-        {/* Map Section */}
+        {/* Interactive Map Section */}
         <div className="container mx-auto px-4 py-20">
           <div className="text-center mb-8">
             <h2 className="text-2xl font-poppins font-bold text-primary mb-4">
@@ -97,16 +98,22 @@ const Contact = () => {
             <p className="text-muted-foreground">Visit our office for direct business discussions</p>
           </div>
           <div className="max-w-4xl mx-auto">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3681.1234567890!2d75.8577!3d22.7196!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fdcc344eaaaab%3A0x2fff2ec2ace5cd49!2sKhatipura%2C%20Indore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1704262800000!5m2!1sen!2sin"
-              width="100%"
-              height="400"
-              style={{ border: 0, borderRadius: '12px' }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-              title="Paras Sales Corporation - Khatipura, Indore Location"
-            ></iframe>
+            <MapboxMap />
+          </div>
+          
+          {/* Fallback Static Map */}
+          <div className="max-w-4xl mx-auto mt-4">
+            <p className="text-sm text-muted-foreground text-center">
+              Interactive map powered by Mapbox. Fallback: 
+              <a 
+                href="https://maps.google.com/maps?q=Khatipura+Main+Road,+Indore,+Madhya+Pradesh" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="ml-1 text-primary hover:underline"
+              >
+                View on Google Maps
+              </a>
+            </p>
           </div>
         </div>
       </section>

@@ -79,16 +79,16 @@ const HeroSection = () => {
       <div className="relative z-20 container mx-auto px-4 text-center text-white">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           <div className="mb-6">
-            <span className="inline-block px-6 py-3 glass-effect rounded-full text-sm font-medium shadow-glow hover-scale transition-bounce">
+            <span className="inline-block px-6 py-3 bg-black/60 backdrop-blur-md border border-white/30 rounded-full text-sm font-medium text-white shadow-glow hover-scale transition-bounce">
               {slides[currentSlide].category}
             </span>
           </div>
           
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-poppins font-bold mb-6 leading-tight text-white text-shadow-lg">
             {slides[currentSlide].title}
           </h1>
           
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl mb-8 text-white/95 max-w-2xl mx-auto text-shadow-md">
             {slides[currentSlide].subtitle}
           </p>
           
