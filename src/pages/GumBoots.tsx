@@ -54,17 +54,17 @@ const GumBoots = () => {
         />
         
         {/* Text Overlay with Blurred Background */}
-        <div className="absolute inset-0 bg-black/20 flex items-center justify-center z-20">
-          <div className="text-center text-white px-8 py-6 rounded-2xl bg-white/30 backdrop-blur-md border border-white/40 max-w-xl mx-4 shadow-2xl">
+        <div className="absolute inset-0 bg-black/30 flex items-center justify-center z-20">
+          <div className="text-center text-white px-8 py-6 rounded-2xl bg-black/40 backdrop-blur-md border border-white/30 max-w-xl mx-4 shadow-hero">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-poppins font-bold mb-4 text-shadow-lg">
               Gum Boots
             </h1>
-            <p className="text-lg sm:text-xl md:text-xl mb-6">
+            <p className="text-lg sm:text-xl md:text-xl mb-6 text-white/90">
               Ultimate Protection Against Elements
             </p>
             <Button 
               size="lg" 
-              className="bg-white text-primary hover:bg-white/90"
+              className="btn-secondary"
               asChild
             >
               <a href="#products">

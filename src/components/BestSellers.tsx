@@ -103,8 +103,8 @@ const BestSellers = () => {
                     <div className="flex space-x-3">
                       <Button
                         size="sm"
-                        variant="secondary"
-                        className="bg-white text-primary hover:bg-white/90"
+                        variant="outline"
+                        className="btn-secondary"
                       >
                         <Eye className="h-4 w-4 mr-2" />
                         View Details
