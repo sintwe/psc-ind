@@ -33,14 +33,14 @@ const Navigation = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <div className="flex items-center">
-            <Link to="/" className="font-poppins font-bold text-xl text-white hover:text-white/80 text-shadow-lg transition-colors">
+            <Link to="/" className="font-poppins font-bold text-xl text-white hover:text-white/80 transition-colors" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)' }}>
               Paras Sales Corporation
             </Link>
           </div>
 
           {/* Mobile-Style Menu for All Devices */}
           <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex items-center space-x-4 text-sm text-white/90">
+            <div className="hidden lg:flex items-center space-x-4 text-sm text-white/90" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
               <div className="flex items-center space-x-1">
                 <Phone className="h-4 w-4" />
                 <span>+91 83494 94982</span>
@@ -58,8 +58,9 @@ const Navigation = () => {
                   variant="ghost" 
                   size="sm"
                   className="text-white hover:text-white/80 hover:bg-white/10"
+                  style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
                 >
-                  <Menu className="h-5 w-5" />
+                  <Menu className="h-5 w-5" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }} />
                 </Button>
               </SheetTrigger>
               <SheetContent>
