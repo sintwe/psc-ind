@@ -28,9 +28,7 @@ const Navigation = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-black/40 backdrop-blur-lg border-b border-white/20 shadow-lg' : 'bg-black/20 backdrop-blur-md border-b border-white/10'
-    }`}>
+    <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-transparent">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
