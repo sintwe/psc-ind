@@ -96,30 +96,6 @@ const BestSellers = () => {
                     alt={product.name}
                     className="w-full h-64 object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110"
                   />
-                  
-                  {/* Hover Overlay */}
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex space-x-3">
-                      <Button
-                        size="sm"
-                        variant="outline"
-                        className="btn-secondary"
-                      >
-                        <Eye className="h-4 w-4 mr-2" />
-                        View Details
-                      </Button>
-                      <Button
-                        size="sm"
-                        className="bg-success text-success-foreground hover:bg-success/90"
-                        asChild
-                      >
-                        <Link to="/contact">
-                          <MessageSquare className="h-4 w-4 mr-2" />
-                          Inquire
-                        </Link>
-                      </Button>
-                    </div>
-                  </div>
                 </div>
 
                 {/* Content */}
