@@ -4,57 +4,56 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Eye, MessageSquare } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import productCollection from '@/assets/product-collection.jpg';
 
 const products = [
   {
     id: 1,
     name: 'Steel Toe Safety Boots',
     category: 'Safety Shoes',
-    image: productCollection,
+    image: '/lovable-uploads/46198705-0da9-486f-9f7e-55aed2569499.png',
     features: ['Steel Toe Cap', 'Anti-Slip Sole', 'Oil Resistant'],
     badge: 'Best Seller',
     popular: true
   },
   {
     id: 2,
-    name: 'Industrial Gum Boots',
-    category: 'Gum Boots',
-    image: productCollection,
-    features: ['100% Waterproof', 'Chemical Resistant', 'Steel Toe'],
+    name: 'Industrial Safety Shoes',
+    category: 'Safety Shoes',
+    image: '/lovable-uploads/3af3ae31-1c43-4083-9b3e-d4aeeda0c076.png',
+    features: ['Lightweight Design', 'Slip Resistant', 'Comfortable Fit'],
     badge: 'Popular',
     popular: true
   },
   {
     id: 3,
-    name: 'Premium School Shoes',
-    category: 'School Shoes',
-    image: productCollection,
-    features: ['Durable Leather', 'Comfort Sole', 'Long Lasting'],
+    name: 'Heavy Duty Safety Boots',
+    category: 'Safety Shoes',
+    image: '/lovable-uploads/55d17159-1c58-4d7e-8a56-e1c1e8fd75a5.png',
+    features: ['Double Density Sole', 'Steel Toe Protection', 'Durable Build'],
     badge: 'Quality Choice'
   },
   {
     id: 4,
-    name: 'High Ankle Safety Boots',
+    name: 'Athletic Safety Shoes',
     category: 'Safety Shoes',
-    image: productCollection,
-    features: ['Ankle Protection', 'Breathable Material', 'Non-Slip'],
+    image: '/lovable-uploads/91a2cab1-603e-4b76-9de8-a8703b7a21c8.png',
+    features: ['Sports Style', 'Breathable Material', 'Non-Slip Sole'],
     badge: 'New'
   },
   {
     id: 5,
-    name: 'Wellington Gum Boots',
-    category: 'Gum Boots',
-    image: productCollection,
-    features: ['Easy Slip-On', 'Flexible Design', 'Mud Resistant'],
+    name: 'Professional Safety Boots',
+    category: 'Safety Shoes',
+    image: '/lovable-uploads/be1d9dce-1518-4a3e-8f9c-86a1ce906790.png',
+    features: ['Premium Leather', 'Enhanced Grip', 'Long Lasting'],
     badge: 'Recommended'
   },
   {
     id: 6,
-    name: 'Formal School Shoes',
-    category: 'School Shoes',
-    image: productCollection,
-    features: ['Polished Finish', 'Comfortable Fit', 'Daily Wear'],
+    name: 'Sport Safety Shoes',
+    category: 'Safety Shoes',
+    image: '/lovable-uploads/8cdefb05-9e31-4b0d-a022-2ebae48b4e75.png',
+    features: ['Modern Design', 'Comfortable Fit', 'Protective Features'],
     badge: 'Student Choice'
   }
 ];
