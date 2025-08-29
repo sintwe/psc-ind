@@ -39,6 +39,8 @@ const Index = () => {
     ]
   };
 
+  const latestPosts = [...blogPosts].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()).slice(0, 3);
+
   return (
     <>
       <SEOHead
@@ -64,7 +66,7 @@ const Index = () => {
                   Check out our latest articles and guides on footwear.
                 </p>
               </div>
-              <BlogCarousel posts={blogPosts} />
+              <BlogCarousel posts={latestPosts} />
               <div className="text-center mt-12">
                   <Button asChild>
                       <Link to="/blog">
