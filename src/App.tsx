@@ -5,36 +5,69 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ErrorBoundary from "@/components/ErrorBoundary";
-import Index from "./pages/Index";
-import SafetyShoes from "./pages/SafetyShoes";
-import GumBoots from "./pages/GumBoots";
-import SchoolShoes from "./pages/SchoolShoes";
-import About from "./pages/About";
-import Contact from "./pages/Contact";
-import NotFound from "./pages/NotFound";
+import { HelmetProvider } from "react-helmet-async";
+import { lazy, Suspense } from "react";
 
+// Lazily load the page components
+const Index = lazy(() => import("@/pages/Index"));
+const SafetyShoes = lazy(() => import("@/pages/SafetyShoes"));
+const GumBoots = lazy(() => import("@/pages/GumBoots"));
+const SchoolShoes = lazy(() => import("@/pages/SchoolShoes"));
+const About = lazy(() => import("@/pages/About"));
+const Contact = lazy(() => import("@/pages/Contact"));
+const NotFound = lazy(() => import("@/pages/NotFound"));
+const Blog = lazy(() => import("@/pages/Blog"));
+const SafetyShoesInIndore = lazy(() => import("@/pages/blog/safety-shoes-in-indore"));
+const SchoolShoesInIndore = lazy(() => import("@/pages/blog/school-shoes-in-indore"));
+const GumbootsInIndore = lazy(() => import("@/pages/blog/gumboots-in-indore"));
+
+// Create a new QueryClient instance
 const queryClient = new QueryClient();
 
+// Create a loading component
+const Loading = () => (
+  <div className="w-screen h-screen grid place-content-center">
+    <div className="w-20 h-20 border-t-4 border-b-4 border-primary rounded-full animate-spin"></div>
+  </div>
+);
+
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <ErrorBoundary>
-        <Toaster />
-        <Sonner />
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/safety-shoes" element={<SafetyShoes />} />
-            <Route path="/gum-boots" element={<GumBoots />} />
-            <Route path="/school-shoes" element={<SchoolShoes />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </BrowserRouter>
-      </ErrorBoundary>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <ErrorBoundary>
+          <Toaster />
+          <Sonner />
+          <BrowserRouter>
+            <Suspense fallback={<Loading />}>
+              <Routes>
+                <Route path="/" element={<Index />} />
+                <Route path="/safety-shoes" element={<SafetyShoes />} />
+                <Route path="/gum-boots" element={<GumBoots />} />
+                <Route path="/school-shoes" element={<SchoolShoes />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/contact" element={<Contact />} />
+                <Route path="/blog" element={<Blog />} />
+                <Route
+                  path="/blog/safety-shoes-in-indore"
+                  element={<SafetyShoesInIndore />}
+                />
+                <Route
+                  path="/blog/school-shoes-in-indore"
+                  element={<SchoolShoesInIndore />}
+                />
+                <Route
+                  path="/blog/gumboots-in-indore"
+                  element={<GumbootsInIndore />}
+                />
+                <Route path="*" element={<NotFound />} />
+              </Routes>
+            </Suspense>
+          </BrowserRouter>
+        </ErrorBoundary>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;

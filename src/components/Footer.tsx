@@ -1,22 +1,23 @@
-import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react';
+import { Mail, Phone, MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   const quickLinks = [
-    { name: 'Home', href: '#home' },
-    { name: 'About Us', href: '#about' },
-    { name: 'Safety Shoes', href: '#safety-shoes' },
-    { name: 'Gum Boots', href: '#gum-boots' },
-    { name: 'School Shoes', href: '#school-shoes' },
-    { name: 'Contact', href: '#contact' },
+    { name: 'Home', href: '/' },
+    { name: 'About Us', href: '/about' },
+    { name: 'Safety Shoes', href: '/safety-shoes' },
+    { name: 'Gum Boots', href: '/gum-boots' },
+    { name: 'School Shoes', href: '/school-shoes' },
+    { name: 'Contact', href: '/contact' },
   ];
 
   const productCategories = [
-    'Industrial Safety Shoes',
-    'Waterproof Gum Boots',
-    'Student School Shoes',
-    'Steel Toe Boots',
-    'Slip Resistant Footwear',
-    'Corporate Footwear'
+    { name: 'Industrial Safety Shoes', href: '/safety-shoes' },
+    { name: 'Waterproof Gum Boots', href: '/gum-boots' },
+    { name: 'Student School Shoes', href: '/school-shoes' },
+    { name: 'Steel Toe Boots', href: '/safety-shoes' },
+    { name: 'Slip Resistant Footwear', href: '/safety-shoes' },
+    { name: 'Corporate Footwear', href: '/contact' }
   ];
 
   return (
@@ -38,9 +39,8 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <MapPin className="h-5 w-5 mt-0.5 text-primary-foreground/80" />
                 <div className="text-sm">
-                  <p>9, Khatipura Main Road</p>
-                  <p>Madhu's Pravesh, Indore</p>
-                  <p>Madhya Pradesh - 452007</p>
+                  <p>9, Main Khatipura Main road, near Jail road square</p>
+                  <p>Indore, Madhya Pradesh, 452007</p>
                 </div>
               </div>
               
@@ -62,12 +62,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link) => (
                 <li key={link.name}>
-                  <a
-                    href={link.href}
+                  <Link
+                    to={link.href}
                     className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200"
                   >
                     {link.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -78,10 +78,10 @@ const Footer = () => {
             <h4 className="text-lg font-poppins font-semibold mb-6">Our Products</h4>
             <ul className="space-y-3">
               {productCategories.map((product) => (
-                <li key={product}>
-                  <span className="text-sm text-primary-foreground/80">
-                    {product}
-                  </span>
+                <li key={product.name}>
+                  <Link to={product.href} className="text-sm text-primary-foreground/80 hover:text-primary-foreground transition-colors duration-200">
+                    {product.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -92,18 +92,20 @@ const Footer = () => {
             <h4 className="text-lg font-poppins font-semibold mb-6">Business Info</h4>
             <div className="space-y-4">
               <div>
-                <h5 className="text-sm font-medium mb-2">Business Hours</h5>
-                <p className="text-sm text-primary-foreground/80">
-                  Monday - Sunday<br />
-                  12:00 PM - 8:00 PM<br />
-                  70+ Years Experience
-                </p>
+                <h5 className="text-sm font-medium mb-2">70+ Years of Excellence</h5>
               </div>
               
               <div>
                 <h5 className="text-sm font-medium mb-2">Coverage Area</h5>
                 <p className="text-sm text-primary-foreground/80">
-                  Pan-India delivery network covering 500+ cities
+                  Pan-India delivery network covering 1000+ pincodes.
+                </p>
+              </div>
+
+              <div>
+                <h5 className="text-sm font-medium mb-2">Trusted By</h5>
+                <p className="text-sm text-primary-foreground/80">
+                  2500+ Dealers & 2000+ Active Partners
                 </p>
               </div>
               
@@ -116,19 +118,19 @@ const Footer = () => {
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
             <div className="text-sm text-primary-foreground/80 space-y-1">
               <p>© 2025 Paras Sales Corporation. All rights reserved.</p>
-              <p>Design by Sintwe International</p>
+              <p>Design by <a href="https://sintwe.com/" target="_blank" rel="noopener noreferrer" className="hover:text-primary-foreground transition-colors">Sintwe International</a></p>
             </div>
             
             <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              <Link to="/privacy-policy" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 Privacy Policy
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/terms-of-service" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 Terms of Service
-              </a>
-              <a href="#" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
+              </Link>
+              <Link to="/bulk-order-terms" className="text-primary-foreground/80 hover:text-primary-foreground transition-colors">
                 Bulk Order Terms
-              </a>
+              </Link>
             </div>
           </div>
         </div>

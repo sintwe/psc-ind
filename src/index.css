@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
+@import 'slick-carousel/slick/slick.css';
+@import 'slick-carousel/slick/slick-theme.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,14 +74,12 @@
     
     --radius: 0.75rem;
   }
-
 }
 
 @layer base {
   * {
     @apply border-border;
   }
-
   body {
     @apply bg-background text-foreground font-inter;
   }
@@ -93,15 +94,12 @@
   .hero-gradient {
     background: var(--gradient-hero);
   }
-  
   .card-gradient {
     background: var(--gradient-card);
   }
-  
   .accent-gradient {
     background: var(--gradient-accent);
   }
-  
   .surface-gradient {
     background: var(--gradient-surface);
   }
@@ -110,15 +108,12 @@
   .shadow-elegant {
     box-shadow: var(--shadow-card);
   }
-  
   .shadow-hero {
     box-shadow: var(--shadow-hero);
   }
-  
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
-  
   .shadow-button {
     box-shadow: var(--shadow-button);
   }
@@ -127,11 +122,9 @@
   .transition-base {
     transition: var(--transition-base);
   }
-  
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
   .transition-bounce {
     transition: var(--transition-bounce);
   }
@@ -140,15 +133,12 @@
   .hover-lift {
     @apply transition-smooth hover:-translate-y-2 hover:shadow-lg;
   }
-  
   .hover-scale {
     @apply transition-base hover:scale-105;
   }
-  
   .hover-glow {
     @apply transition-smooth hover:shadow-glow;
   }
-  
   .hover-tilt {
     @apply transition-base hover:rotate-1 hover:scale-105;
   }
@@ -157,56 +147,31 @@
   .glass-effect {
     @apply bg-white/90 backdrop-blur-md border border-white/30 shadow-elegant;
   }
-  
   .glass-card {
     @apply bg-white/95 backdrop-blur-sm border border-white/20 shadow-elegant;
   }
   
   /* Enhanced Product Cards */
   .product-card {
-    @apply bg-card rounded-xl border border-border shadow-elegant hover-lift transition-smooth overflow-hidden;
+    @apply bg-card rounded-xl border border-border hover:border-primary/20 shadow-elegant transition-smooth overflow-hidden hover:-translate-y-1 hover:shadow-lg;
   }
   
-  .product-card:hover {
-    @apply shadow-lg border-primary/20 -translate-y-1;
+  /* Enhanced Button styles with accessibility */
+  .btn-primary {
+    @apply bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-button transition-smooth hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-ring;
   }
-}
-  
-  /* Enhanced Text Shadows for Better Readability */
-  .text-shadow-lg {
-    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+  .btn-secondary {
+    @apply bg-white text-primary border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3 rounded-xl transition-smooth hover:shadow-lg focus-visible:outline-ring;
   }
   
-  .text-shadow-md {
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  }
-  
-  /* Focus Styles for Accessibility */
-  .focus-visible\:outline-ring:focus-visible {
-    outline: 2px solid hsl(var(--ring));
-    outline-offset: 2px;
-  }
-  
-  /* Screen Reader Only class for accessibility */
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0, 0, 0, 0);
-    white-space: nowrap;
-    border: 0;
-  }
-  
-  /* Responsive Helper Classes */
+  /* Improved mobile responsiveness for buttons */
   @media (max-width: 640px) {
-    .mobile-padding {
-      padding-left: 1rem;
-      padding-right: 1rem;
+    .btn-primary, .btn-secondary {
+      @apply px-6 py-2.5 text-sm;
     }
   }
+}
+
 @layer utilities {
   /* Custom animations */
   @keyframes fadeInUp {
@@ -245,11 +210,9 @@
   .animate-fade-in-up {
     animation: fadeInUp 0.6s ease-out;
   }
-  
   .animate-slide-in {
     animation: slideIn 0.5s ease-out;
   }
-  
   .animate-scale-in {
     animation: scaleIn 0.4s ease-out;
   }
@@ -260,38 +223,54 @@
     animation-fill-mode: both;
     opacity: 0;
   }
-  
   .animate-stagger-2 {
     animation-delay: 0.2s;
     animation-fill-mode: both;
     opacity: 0;
   }
-  
   .animate-stagger-3 {
     animation-delay: 0.3s;
     animation-fill-mode: both;
     opacity: 0;
   }
-  
   .animate-stagger-4 {
     animation-delay: 0.4s;
     animation-fill-mode: both;
     opacity: 0;
   }
   
-  /* Enhanced Button styles with accessibility */
-  .btn-primary {
-    @apply bg-primary hover:bg-primary-hover text-primary-foreground font-semibold px-8 py-3 rounded-xl shadow-button transition-smooth hover:shadow-lg hover:-translate-y-0.5 focus-visible:outline-ring;
+  /* Enhanced Text Shadows for Better Readability */
+  .text-shadow-lg {
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.3);
+  }
+  .text-shadow-md {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
   }
   
-  .btn-secondary {
-    @apply bg-white text-primary border-2 border-primary/20 hover:border-primary hover:bg-primary hover:text-primary-foreground font-semibold px-8 py-3 rounded-xl transition-smooth hover:shadow-button focus-visible:outline-ring;
+  /* Focus Styles for Accessibility */
+  .focus-visible\:outline-ring:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
   }
   
-  /* Improved mobile responsiveness */
+  /* Screen Reader Only class for accessibility */
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+  
+  /* Responsive Helper Classes */
   @media (max-width: 640px) {
-    .btn-primary, .btn-secondary {
-      @apply px-6 py-2.5 text-sm;
+    .mobile-padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
     }
   }
 }

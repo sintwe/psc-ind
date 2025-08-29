@@ -3,9 +3,9 @@ import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { ChevronLeft, ChevronRight, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import safetyShoes from '@/assets/safety-shoes-hero.jpg';
-import gumBoots from '@/assets/gum-boots-hero.jpg';
-import schoolShoes from '@/assets/school-shoes-hero.jpg';
+import safetyShoes from '@/assets/optimized/safety-shoes-hero.webp';
+import gumBoots from '@/assets/optimized/gum-boots-hero.webp';
+import schoolShoes from '@/assets/optimized/school-shoes-hero.webp';
 
 const slides = [
   {
@@ -71,6 +71,7 @@ const HeroSection = () => {
             src={slide.image}
             alt={slide.category}
             className="w-full h-full object-cover"
+            fetchpriority={index === 0 ? 'high' : 'auto'}
           />
         </div>
       ))}
@@ -129,7 +130,7 @@ const HeroSection = () => {
         className="absolute right-6 top-1/2 -translate-y-1/2 z-30 p-3 rounded-full bg-black/70 backdrop-blur-md border border-white/30 text-white hover:bg-black/90 hover-scale transition-all duration-300 shadow-hero"
         aria-label="Next slide"
       >
-        <ChevronRight className="h-5 w-5 drop-shadow-lg" />
+        <ChevronRight className_="h-5 w-5 drop-shadow-lg" />
       </button>
 
       {/* Enhanced Slide Indicators */}

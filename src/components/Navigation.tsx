@@ -2,12 +2,13 @@
 import { useState, useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
-import { Menu, Phone, Mail } from 'lucide-react';
+import { Menu, Phone, Mail, ArrowLeft } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const isBlogPost = location.pathname.startsWith('/blog/') && location.pathname !== '/blog';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,6 +24,7 @@ const Navigation = () => {
     { name: 'Safety Shoes', href: '/safety-shoes' },
     { name: 'Gum Boots', href: '/gum-boots' },
     { name: 'School Shoes', href: '/school-shoes' },
+    { name: 'Blog', href: '/blog' },
     { name: 'About Us', href: '/about' },
     { name: 'Contact', href: '/contact' },
   ];
@@ -31,18 +33,26 @@ const Navigation = () => {
     <nav className="fixed top-0 w-full z-50 transition-all duration-300 bg-white/5 backdrop-blur-sm border-b border-white/10">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo */}
+          {/* Logo and Back Button */}
           <div className="flex items-center">
-            <Link to="/" className="font-poppins font-bold text-xl text-white hover:text-white/80 transition-colors" style={{ textShadow: '2px 2px 4px rgba(0,0,0,0.8), 0 0 8px rgba(0,0,0,0.6)' }}>
-              Paras Sales Corporation
+            {isBlogPost && (
+              <Button asChild variant="ghost" size="sm" className="mr-2 text-black hover:text-gray-700 hover:bg-gray-100">
+                <Link to="/blog" aria-label="Back to Blog">
+                  <ArrowLeft className="h-5 w-5" />
+                  <span className="ml-2 hidden sm:inline">Back to Blog</span>
+                </Link>
+              </Button>
+            )}
+            <Link to="/" className="font-poppins font-bold text-xl text-black hover:text-gray-700 transition-colors">
+ Paras Sales Corporation
             </Link>
           </div>
 
           {/* Mobile-Style Menu for All Devices */}
-          <div className="flex items-center space-x-4">
-            <div className="hidden lg:flex items-center space-x-4 text-sm text-white/90" style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}>
+          <div className="flex items-center space-x-4 text-black">
+            <div className="hidden lg:flex items-center space-x-4 text-sm text-black">
               <div className="flex items-center space-x-1">
-                <Phone className="h-4 w-4" />
+                <Phone className="h-4 w-4 text-black" />
                 <span>+91 83494 94982</span>
               </div>
               <div className="flex items-center space-x-1">
@@ -57,10 +67,10 @@ const Navigation = () => {
                 <Button 
                   variant="ghost" 
                   size="sm"
-                  className="text-white hover:text-white/80 hover:bg-white/10"
-                  style={{ textShadow: '1px 1px 3px rgba(0,0,0,0.8)' }}
+                  className="text-black hover:text-gray-700 hover:bg-gray-100"
+                  aria-label="Open menu"
                 >
-                  <Menu className="h-5 w-5" style={{ filter: 'drop-shadow(1px 1px 2px rgba(0,0,0,0.8))' }} />
+                  <Menu className="h-5 w-5" />
                 </Button>
               </SheetTrigger>
               <SheetContent>
