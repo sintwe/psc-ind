@@ -6,42 +6,64 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Droplets, Shield, Thermometer, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import gumBoots from '@/assets/optimized/gum-boots-hero.webp';
-import productCollection from '@/assets/optimized/product-collection.webp';
 import SEOHead from '@/components/SEOHead';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
+import * as React from "react"
+
+const gumBootImages = [
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_1.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_2.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_3.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_4.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_5.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_6.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_7.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_8.webp",
+  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_9.webp"
+];
 
 const gumBootProducts = [
   {
     id: 1,
     name: 'Industrial PVC Gum Boots',
-    image: productCollection,
+    image: "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_1.webp",
     features: ['100% Waterproof', 'Chemical Resistant', 'Steel Toe Protection', 'Anti-Slip Sole'],
     applications: ['Chemical Plants', 'Food Processing', 'Agriculture', 'Mining']
   },
   {
     id: 2,
     name: 'Wellington Gum Boots',
-    image: productCollection,
+    image: "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_1.webp",
     features: ['Easy Slip-On', 'Comfortable Fit', 'Mud Resistant', 'Durable Construction'],
     applications: ['Farming', 'Gardening', 'Construction', 'General Industry']
   },
   {
     id: 3,
     name: 'Safety Gum Boots with Steel Toe',
-    image: productCollection,
+    image: "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_1.webp",
     features: ['Steel Toe Cap', 'Puncture Resistant', 'Oil Resistant', 'High Ankle Support'],
     applications: ['Oil & Gas', 'Marine Industry', 'Heavy Construction', 'Waste Management']
   },
   {
     id: 4,
     name: 'Insulated Gum Boots',
-    image: productCollection,
+    image: "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_1.webp",
     features: ['Thermal Insulation', 'Cold Weather Protection', 'Waterproof', 'Comfort Lining'],
     applications: ['Cold Storage', 'Winter Construction', 'Refrigeration', 'Outdoor Work']
   }
 ];
 
 const GumBoots = () => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 2000, stopOnInteraction: true })
+  )
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -80,11 +102,32 @@ const GumBoots = () => {
         
         {/* Hero Section */}
         <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16">
-          <img
-            src={gumBoots}
+        <Carousel
+              plugins={[plugin.current]}
+              className="w-full h-full"
+              onMouseEnter={plugin.current.stop}
+              onMouseLeave={plugin.current.reset}
+            >
+              <CarouselContent>
+                {gumBootImages.map((image, index) => (
+                  <CarouselItem key={index}>
+                    <div className="p-1">
+                      <Card>
+                        <CardContent className="flex aspect-square items-center justify-center p-6">
+                        <img
+            src={image}
             alt="Gum Boots"
             className="w-full h-full object-cover object-center"
           />
+                        </CardContent>
+                      </Card>
+                    </div>
+                  </CarouselItem>
+                ))}
+              </CarouselContent>
+              <CarouselPrevious />
+              <CarouselNext />
+            </Carousel>
           
           {/* Text Overlay with Blurred Background */}
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center z-20">
@@ -124,11 +167,11 @@ const GumBoots = () => {
               {gumBootProducts.map((product) => (
                 <Card key={product.id} className="group hover:shadow-lg transition-shadow">
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
+                    <div className="relative overflow-hidden rounded-t-lg aspect-square">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                       />
                     </div>
                     

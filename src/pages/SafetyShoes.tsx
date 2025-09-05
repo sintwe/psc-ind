@@ -6,43 +6,244 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Shield, Zap, Droplets, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import safetyShoes from '@/assets/optimized/safety-shoes-hero.webp';
-import productCollection from '@/assets/optimized/product-collection.webp';
 import SEOHead from '@/components/SEOHead';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
+import Autoplay from "embla-carousel-autoplay"
+import * as React from "react"
 
 const safetyProducts = [
   {
     id: 1,
-    name: 'Steel Toe Safety Boots',
-    image: productCollection,
+    name: 'WF 05',
+    category: 'WeFly',
+    images: [
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_1.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_2.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_3.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_4.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_6.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_7.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_8.webp",
+      "src/assets/optimized/products images/WeFly Images/WF 05/WF05_9.webp"
+    ],
     features: ['Steel Toe Cap', 'Anti-Slip Sole', 'Oil Resistant', 'Puncture Proof'],
     applications: ['Construction', 'Manufacturing', 'Mining', 'Heavy Industry']
   },
   {
     id: 2,
-    name: 'Composite Toe Safety Shoes',
-    image: productCollection,
+    name: 'WF01 Black',
+    category: 'WeFly',
+    images: [
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_1(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_3(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_4.webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_6(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_6.webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_7(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_7.webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_8(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_8.webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_9(1).webp",
+      "src/assets/optimized/products images/WeFly Images/WF01 Black/WF01Black_Final_2025_9.webp"
+    ],
     features: ['Lightweight Composite Toe', 'Electrical Hazard Protection', 'Breathable', 'Comfortable'],
     applications: ['Electronics', 'Food Industry', 'Light Manufacturing', 'Warehousing']
   },
   {
     id: 3,
-    name: 'High Ankle Safety Boots',
-    image: productCollection,
+    name: 'WF02 Green',
+    category: 'WeFly',
+    images: ["src/assets/optimized/products images/WeFly Images/WF02 Green/WF02Green_Final_2025_7.webp"],
     features: ['Ankle Protection', 'Waterproof', 'Heat Resistant', 'Durable Leather'],
     applications: ['Welding', 'Foundry', 'Chemical Plants', 'Oil & Gas']
   },
   {
     id: 4,
-    name: 'Cut Resistant Safety Shoes',
-    image: productCollection,
+    name: 'WeFly 1904',
+    category: 'WeFly',
+    images: [
+      "src/assets/optimized/products images/WeFly Images/WeFly 1904/SWAG_1904_2025_13.webp",
+      "src/assets/optimized/products images/WeFly Images/WeFly 1904/SWAG_1904_2025_14.webp",
+      "src/assets/optimized/products images/WeFly Images/WeFly 1904/SWAG_1904_2025_16.webp",
+      "src/assets/optimized/products images/WeFly Images/WeFly 1904/SWAG_1904_2025_3.webp"
+    ],
     features: ['Cut Resistant Upper', 'Metatarsal Guard', 'Chemical Resistant', 'Anti-Static'],
     applications: ['Glass Industry', 'Metal Cutting', 'Sharp Object Handling', 'Automotive']
+  },
+  {
+    id: 5,
+    name: 'CL 07',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_7.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_8.webp",
+      "src/assets/optimized/products images/CLAWZ/CL 07/CL07_Final_2025_9.webp"
+    ],
+    features: ['Steel Toe Cap', 'Anti-Slip Sole', 'Oil Resistant', 'Puncture Proof'],
+    applications: ['Construction', 'Manufacturing', 'Mining', 'Heavy Industry']
+  },
+  {
+    id: 6,
+    name: 'CL01',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_7.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_8.webp",
+      "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_9.webp"
+    ],
+    features: ['Lightweight Composite Toe', 'Electrical Hazard Protection', 'Breathable', 'Comfortable'],
+    applications: ['Electronics', 'Food Industry', 'Light Manufacturing', 'Warehousing']
+  },
+  {
+    id: 7,
+    name: 'CL02',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_7.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_8.webp",
+      "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_9.webp"
+    ],
+    features: ['Ankle Protection', 'Waterproof', 'Heat Resistant', 'Durable Leather'],
+    applications: ['Welding', 'Foundry', 'Chemical Plants', 'Oil & Gas']
+  },
+  {
+    id: 8,
+    name: 'CL03',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_9.webp"
+    ],
+    features: ['Cut Resistant Upper', 'Metatarsal Guard', 'Chemical Resistant', 'Anti-Static'],
+    applications: ['Glass Industry', 'Metal Cutting', 'Sharp Object Handling', 'Automotive']
+  },
+  {
+    id: 9,
+    name: 'CL04',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_7.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_8.webp",
+      "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_9.webp"
+    ],
+    features: ['Steel Toe Cap', 'Anti-Slip Sole', 'Oil Resistant', 'Puncture Proof'],
+    applications: ['Construction', 'Manufacturing', 'Mining', 'Heavy Industry']
+  },
+  {
+    id: 10,
+    name: 'CL06',
+    category: 'Clawz',
+    images: [
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_1.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_2.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_3.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_4.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_5.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_6.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_7.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_8.webp",
+      "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_9.webp"
+    ],
+    features: ['Lightweight Composite Toe', 'Electrical Hazard Protection', 'Breathable', 'Comfortable'],
+    applications: ['Electronics', 'Food Industry', 'Light Manufacturing', 'Warehousing']
   }
 ];
 
-const SafetyShoes = () => {
+const ProductCarousel = ({ images, name }) => {
+  const plugin = React.useRef(
+    Autoplay({ delay: 5000, stopOnInteraction: true })
+  );
+  const [api, setApi] = React.useState(null);
+  const [current, setCurrent] = React.useState(0);
 
+  React.useEffect(() => {
+    if (!api) {
+      return;
+    }
+
+    setCurrent(api.selectedScrollSnap() + 1);
+
+    api.on("select", () => {
+      setCurrent(api.selectedScrollSnap() + 1);
+    });
+  }, [api]);
+
+  return (
+    <div>
+    <Carousel 
+      setApi={setApi}
+      className="w-full max-w-xs relative group"
+      plugins={[plugin.current]}
+      onMouseEnter={plugin.current.stop}
+      onMouseLeave={plugin.current.reset}>
+      <CarouselContent>
+        {images.map((image, index) => (
+          <CarouselItem key={index}>
+            <div className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                <img
+                        src={image}
+                        alt={name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                </CardContent>
+              </Card>
+            </div>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious className="absolute top-1/2 left-2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0" />
+      <CarouselNext className="absolute top-1/2 right-2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0" />
+    </Carousel>
+    <div className="flex justify-center items-center mt-2 space-x-2">
+        {images.map((_, index) => (
+          <div
+            key={index}
+            className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index + 1 ? 'w-3 h-3 bg-primary' : 'bg-gray-300'}`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const SafetyShoes = () => {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -96,7 +297,7 @@ const SafetyShoes = () => {
         {/* Hero Section */}
         <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16">
           <img
-            src={safetyShoes}
+            src="src/assets/optimized/products images/WeFly Images/WF 05/WF05_1.webp"
             alt="Safety Shoes"
             className="w-full h-full object-cover object-center"
           />
@@ -139,15 +340,10 @@ const SafetyShoes = () => {
               {safetyProducts.map((product) => (
                 <Card key={product.id} className="group hover:shadow-lg transition-shadow">
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
+                    <ProductCarousel images={product.images} name={product.name} />
                     
                     <div className="p-6">
+                    <Badge variant="secondary" className="text-xs mb-2">{product.category}</Badge>
                       <h3 className="text-lg font-semibold mb-3">{product.name}</h3>
                       
                       <div className="mb-4">
