@@ -1,43 +1,53 @@
+
 export interface BlogPost {
   slug: string;
   title: string;
   description: string;
   image: string;
   date: string;
+  author: {
+    name: string;
+    avatar?: string; // Optional: path to an avatar image
+  };
   tags: string[];
+  category: string;
 }
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "the-ultimate-guide-to-choosing-the-right-footwear-for-your-industry",
-    title: "The Ultimate Guide to Choosing the Right Footwear for Your Industry",
-    description: "A comprehensive guide to selecting the best footwear for various sectors, including construction, manufacturing, and healthcare.",
-    image: "/lovable-uploads/d415232a-04c9-450a-81cb-63172c1a84f5.png",
-    date: "2024-07-21",
-    tags: ["Safety", "Industry", "Footwear Guide"],
-  },
-  {
     slug: "safety-shoes-in-indore",
-    title: "Safety Shoes in Indore: A Complete Guide",
-    description: "A complete guide to finding the best safety shoes in Indore for industrial and construction work. Learn about top brands, features, and where to buy.",
+    title: "Your B2B Guide to Safety Shoes in Indore",
+    description: "A complete guide for B2B buyers on finding the best safety shoes in Indore for industrial and construction work. Learn about top brands and features from a trusted 70-year-old firm.",
     image: "/lovable-uploads/3af3ae31-1c43-4083-9b3e-d4aeeda0c076.png",
     date: "2024-07-20",
-    tags: ["Safety", "Indore", "Industrial"],
+    author: {
+      name: "Paras Sales Corporation",
+    },
+    tags: ["safety shoes in Indore", "industrial safety shoes", "safety footwear supplier", "PPE footwear", "safety shoes Pithampur", "safety shoes Dewas", "steel toe boots", "workplace safety", "ISI certified safety shoes"],
+    category: "Safety Shoes",
   },
   {
     slug: "school-shoes-in-indore",
-    title: "Choosing the Perfect School Shoes in Indore",
-    description: "Everything you need to know about choosing the perfect pair of school shoes for your child in Indore. Comfort and durability are key!",
+    title: "A B2B Guide to Sourcing School Shoes in Indore",
+    description: "An essential guide for schools and uniform distributors on sourcing bulk school shoes in Indore. Learn about the benefits of partnering with a local B2B supplier.",
     image: "/lovable-uploads/8cdefb05-9e31-4b0d-a022-2ebae48b4e75.png",
     date: "2024-07-19",
-    tags: ["School", "Indore", "Children"],
+    author: {
+      name: "Paras Sales Corporation",
+    },
+    tags: ["school shoe supplier Indore", "bulk school shoes", "B2B footwear", "school uniform shoes", "institutional footwear", "wholesale school shoes Indore", "school shoe tender"],
+    category: "School Shoes",
   },
   {
     slug: "gumboots-in-indore",
-    title: "Stay Dry! Your Guide to Gumboots in Indore",
-    description: "Stay dry and comfortable during the monsoon season with our guide to the best gumboots in Indore. We cover styles, materials, and local vendors.",
+    title: "Why Quality Gumboots are a B2B Essential in Indore",
+    description: "A guide for B2B procurement managers on why gumboots are vital for hygiene and safety in industries like food processing, chemical plants, and construction.",
     image: "/lovable-uploads/46198705-0da9-486f-9f7e-55aed2569499.png",
     date: "2024-07-18",
-    tags: ["Monsoon", "Indore", "Gumboots"],
+    author: {
+      name: "Paras Sales Corporation",
+    },
+    tags: ["gumboots in Indore", "industrial gumboots", "chemical resistant boots", "waterproof gumboots", "gumboots Pithampur", "food processing", "monsoon footwear", "PVC boots", "heavy-duty gumboots"],
+    category: "Gumboots",
   },
 ];

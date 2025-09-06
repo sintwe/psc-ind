@@ -1,11 +1,9 @@
-
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Droplets, Shield, Thermometer, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
 import SEOHead from '@/components/SEOHead';
 import {
   Carousel,
@@ -16,54 +14,115 @@ import {
 } from "@/components/ui/carousel"
 import Autoplay from "embla-carousel-autoplay"
 import * as React from "react"
-
-const gumBootImages = [
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_1.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_2.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_3.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_4.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_5.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_6.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_7.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_8.webp",
-  "src/assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_9.webp"
-];
+import InquiryModal from '@/components/InquiryModal';
 
 const gumBootProducts = [
   {
     id: 1,
     name: 'Industrial PVC Gum Boots',
-    image: "src/assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_1.webp",
+    images: [
+        "assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_1.webp",
+        "assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_2.webp",
+        "assets/optimized/products images/CLAWZ/CL02/CL02_Final_2025_3.webp",
+    ],
     features: ['100% Waterproof', 'Chemical Resistant', 'Steel Toe Protection', 'Anti-Slip Sole'],
     applications: ['Chemical Plants', 'Food Processing', 'Agriculture', 'Mining']
   },
   {
     id: 2,
     name: 'Wellington Gum Boots',
-    image: "src/assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_1.webp",
+    images: [
+        "assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_1.webp",
+        "assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_2.webp",
+        "assets/optimized/products images/CLAWZ/CL03/CL03_Final_2025_3.webp",
+    ],
     features: ['Easy Slip-On', 'Comfortable Fit', 'Mud Resistant', 'Durable Construction'],
     applications: ['Farming', 'Gardening', 'Construction', 'General Industry']
   },
   {
     id: 3,
     name: 'Safety Gum Boots with Steel Toe',
-    image: "src/assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_1.webp",
+    images: [
+        "assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_1.webp",
+        "assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_2.webp",
+        "assets/optimized/products images/CLAWZ/CL04/CL04_Final_2025_3.webp",
+    ],
     features: ['Steel Toe Cap', 'Puncture Resistant', 'Oil Resistant', 'High Ankle Support'],
     applications: ['Oil & Gas', 'Marine Industry', 'Heavy Construction', 'Waste Management']
   },
   {
     id: 4,
     name: 'Insulated Gum Boots',
-    image: "src/assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_1.webp",
+    images: [
+        "assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_1.webp",
+        "assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_2.webp",
+        "assets/optimized/products images/CLAWZ/CL06/CL06_Final_2025_3.webp",
+    ],
     features: ['Thermal Insulation', 'Cold Weather Protection', 'Waterproof', 'Comfort Lining'],
     applications: ['Cold Storage', 'Winter Construction', 'Refrigeration', 'Outdoor Work']
   }
 ];
 
+const ProductCarousel = ({ images, name }) => {
+    const plugin = React.useRef(
+      Autoplay({ delay: 5000, stopOnInteraction: true })
+    );
+    const [api, setApi] = React.useState(null);
+    const [current, setCurrent] = React.useState(0);
+  
+    React.useEffect(() => {
+      if (!api) {
+        return;
+      }
+  
+      setCurrent(api.selectedScrollSnap() + 1);
+  
+      api.on("select", () => {
+        setCurrent(api.selectedScrollSnap() + 1);
+      });
+    }, [api]);
+  
+    return (
+      <div>
+      <Carousel 
+        setApi={setApi}
+        className="w-full max-w-xs relative group"
+        plugins={[plugin.current]}
+        onMouseEnter={plugin.current.stop}
+        onMouseLeave={plugin.current.reset}>
+        <CarouselContent>
+          {images.map((image, index) => (
+            <CarouselItem key={index}>
+              <div className="p-1">
+                <Card>
+                  <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <img
+                          src={image}
+                          alt={name}
+                          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                        />
+                  </CardContent>
+                </Card>
+              </div>
+            </CarouselItem>
+          ))}
+        </CarouselContent>
+        <CarouselPrevious className="absolute top-1/2 left-2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0" />
+        <CarouselNext className="absolute top-1/2 right-2 -translate-y-1/2 z-10 opacity-0 group-hover:opacity-100 transition-opacity disabled:opacity-0" />
+      </Carousel>
+      <div className="flex justify-center items-center mt-2 space-x-2">
+          {images.map((_, index) => (
+            <div
+              key={index}
+              className={`w-2 h-2 rounded-full transition-all duration-300 ${current === index + 1 ? 'w-3 h-3 bg-primary' : 'bg-gray-300'}`}
+            />
+          ))}
+        </div>
+      </div>
+    );
+  };
+
 const GumBoots = () => {
-  const plugin = React.useRef(
-    Autoplay({ delay: 2000, stopOnInteraction: true })
-  )
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -102,32 +161,11 @@ const GumBoots = () => {
         
         {/* Hero Section */}
         <section className="relative h-80 sm:h-96 md:h-[28rem] flex items-center justify-center overflow-hidden mt-16">
-        <Carousel
-              plugins={[plugin.current]}
-              className="w-full h-full"
-              onMouseEnter={plugin.current.stop}
-              onMouseLeave={plugin.current.reset}
-            >
-              <CarouselContent>
-                {gumBootImages.map((image, index) => (
-                  <CarouselItem key={index}>
-                    <div className="p-1">
-                      <Card>
-                        <CardContent className="flex aspect-square items-center justify-center p-6">
-                        <img
-            src={image}
+        <img
+            src="assets/optimized/products images/CLAWZ/CL01/CL01_Final_2025_1.webp"
             alt="Gum Boots"
             className="w-full h-full object-cover object-center"
           />
-                        </CardContent>
-                      </Card>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <CarouselPrevious />
-              <CarouselNext />
-            </Carousel>
           
           {/* Text Overlay with Blurred Background */}
           <div className="absolute inset-0 bg-black/30 flex items-center justify-center z-20">
@@ -167,13 +205,7 @@ const GumBoots = () => {
               {gumBootProducts.map((product) => (
                 <Card key={product.id} className="group hover:shadow-lg transition-shadow">
                   <CardContent className="p-0">
-                    <div className="relative overflow-hidden rounded-t-lg aspect-square">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-                      />
-                    </div>
+                  <ProductCarousel images={product.images} name={product.name} />
                     
                     <div className="p-6">
                       <h3 className="text-lg font-semibold mb-3">{product.name}</h3>
@@ -201,9 +233,7 @@ const GumBoots = () => {
                         </div>
                       </div>
                       
-                      <Button className="w-full" variant="outline" asChild>
-                        <Link to="/contact">Send Inquiry</Link>
-                      </Button>
+                      <InquiryModal />
                     </div>
                   </CardContent>
                 </Card>
@@ -234,7 +264,7 @@ const GumBoots = () => {
               </div>
               
               <div className="text-center">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+                <div className="bg-primary/10 rounded--full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Shield className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Chemical Resistant</h3>
@@ -242,7 +272,7 @@ const GumBoots = () => {
               </div>
               
               <div className="text-center">
-                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx--auto mb-4">
+                <div className="bg-primary/10 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
                   <Thermometer className="h-8 w-8 text-primary" />
                 </div>
                 <h3 className="text-xl font-semibold mb-2">Temperature Resistant</h3>

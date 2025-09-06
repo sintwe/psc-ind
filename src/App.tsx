@@ -17,9 +17,7 @@ const About = lazy(() => import("@/pages/About"));
 const Contact = lazy(() => import("@/pages/Contact"));
 const NotFound = lazy(() => import("@/pages/NotFound"));
 const Blog = lazy(() => import("@/pages/Blog"));
-const SafetyShoesInIndore = lazy(() => import("@/pages/blog/safety-shoes-in-indore"));
-const SchoolShoesInIndore = lazy(() => import("@/pages/blog/school-shoes-in-indore"));
-const GumbootsInIndore = lazy(() => import("@/pages/blog/gumboots-in-indore"));
+const BlogPostPage = lazy(() => import("@/pages/BlogPost"));
 
 // Create a new QueryClient instance
 const queryClient = new QueryClient();
@@ -38,7 +36,7 @@ const App = () => (
         <ErrorBoundary>
           <Toaster />
           <Sonner />
-          <BrowserRouter>
+          <BrowserRouter future={{ v7_relativeSplatPath: true, v7_startTransition: true }}>
             <Suspense fallback={<Loading />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -48,18 +46,7 @@ const App = () => (
                 <Route path="/about" element={<About />} />
                 <Route path="/contact" element={<Contact />} />
                 <Route path="/blog" element={<Blog />} />
-                <Route
-                  path="/blog/safety-shoes-in-indore"
-                  element={<SafetyShoesInIndore />}
-                />
-                <Route
-                  path="/blog/school-shoes-in-indore"
-                  element={<SchoolShoesInIndore />}
-                />
-                <Route
-                  path="/blog/gumboots-in-indore"
-                  element={<GumbootsInIndore />}
-                />
+                <Route path="/blog/:slug" element={<BlogPostPage />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>

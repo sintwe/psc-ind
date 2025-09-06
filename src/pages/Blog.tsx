@@ -1,103 +1,143 @@
 
-import { FC } from "react";
-import { Link } from "react-router-dom";
+// src/pages/Blog.tsx
+import { FC, useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOHead from "@/components/SEOHead";
-import { blogPosts, BlogPost } from "@/data/blogPosts";
-import { ArrowRight } from "lucide-react";
+import { blogPosts } from "@/data/blogPosts";
+import { Search } from "lucide-react";
+import { motion } from "framer-motion";
+import NewsletterCTA from "@/components/NewsletterCTA";
+import BlogCard from "@/components/BlogCard";
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
 
 const Blog: FC = () => {
-  const featuredPost = blogPosts[0];
-  const otherPosts = blogPosts.slice(1);
+  const [filter, setFilter] = useState("All");
+  const [searchTerm, setSearchTerm] = useState("");
 
-  const jsonLd = {
+  const categories = useMemo(() => ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))], []);
+
+  const filteredPosts = useMemo(() => {
+    return blogPosts
+      .filter((post) => filter === "All" || post.category === filter)
+      .filter((post) =>
+        post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        post.category.toLowerCase().includes(searchTerm.toLowerCase())
+      );
+  }, [filter, searchTerm]);
+  
+  const baseUrl = "https://www.parassales.com";
+  const blogUrl = `${baseUrl}/blog`;
+
+  const blogJsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
     "name": "Paras Sales Corporation Blog",
-    "url": "https://www.parassales.com/blog",
-    // ... other jsonLd properties
+    "url": blogUrl,
+    "description": "Expert insights on industrial safety footwear, school shoes, and gumboots for B2B procurement.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Paras Sales Corporation",
+      "logo": { "@type": "ImageObject", "url": `${baseUrl}/logo.png` }
+    },
+    "mainEntityOfPage": { "@type": "WebPage", "@id": blogUrl },
+    "blogPost": blogPosts.map(post => ({
+      "@type": "BlogPosting",
+      "mainEntityOfPage": { "@type": "WebPage", "@id": `${baseUrl}/blog/${post.slug}` },
+      "headline": post.title,
+      "image": `${baseUrl}${post.image}`,
+      "datePublished": post.date,
+      "author": { "@type": "Organization", "name": "Paras Sales Corporation", "url": baseUrl },
+      "description": post.description
+    }))
   };
 
   return (
     <>
       <SEOHead
-        title="Footwear Blog | Expert Tips & Guides | Paras Sales Corporation"
-        description="Explore our blog for expert advice, guides, and the latest trends in footwear."
-        keywords="footwear blog, shoe guide, safety shoes, school shoes, gumboots, Indore"
-        jsonLd={JSON.stringify(jsonLd)}
+        title="B2B Footwear Blog: Safety, School & Gumboots | Paras Sales Corporation"
+        description="The official B2B blog for Paras Sales Corporation. Get expert advice on industrial safety shoes, bulk school shoes, and waterproof gumboots for your business needs."
+        keywords="b2b footwear blog, industrial safety shoes, bulk school shoes, gumboots supplier, indore, pithampur"
+        jsonLd={JSON.stringify(blogJsonLd)}
+        ogUrl={blogUrl}
       />
       <Navigation />
-      <main className="pt-16 bg-gray-50">
-        <div className="container mx-auto px-4 py-12 md:py-16">
-          <header className="text-center mb-12 md:mb-16">
-            <h1 className="text-4xl md:text-6xl font-extrabold text-gray-900 mb-4 font-poppins">Our Footwear Blog</h1>
-            <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-              Your trusted source for expert advice, guides, and the latest trends in footwear.
+      <main className="bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+        <div className="container mx-auto px-4 py-16">
+          <header className="text-center mb-12">
+            <h1 className="text-4xl md:text-6xl font-poppins font-bold text-primary mb-4">
+              The Paras Sales B2B Blog
+            </h1>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Your resource for expert insights on industrial, safety, and institutional footwear procurement.
             </p>
           </header>
 
-          {/* Featured Post Hero */}
-          {featuredPost && (
-            <section className="mb-12 md:mb-20">
-              <Link to={featuredPost.link} className="block group">
-                <div className="relative grid md:grid-cols-2 gap-8 items-center bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                  <div className="relative overflow-hidden rounded-lg aspect-video md:aspect-auto">
-                    <img 
-                      src={featuredPost.imageUrl} 
-                      alt={featuredPost.title} 
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    />
-                  </div>
-                  <div className="md:pr-8">
-                    <span className="text-sm font-semibold uppercase tracking-wider text-primary mb-3 inline-block">Featured Article</span>
-                    <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight font-poppins group-hover:text-primary transition-colors duration-300">{featuredPost.title}</h2>
-                    <p className="mt-4 text-base text-gray-600 max-w-2xl">{featuredPost.excerpt}</p>
-                     <div className="mt-6 pt-4 border-t border-gray-200 flex items-center text-sm text-gray-500">
-                        <span>{featuredPost.date}</span>
-                        <span className="mx-2">•</span>
-                        <span>{featuredPost.readTime}</span>
-                      </div>
-                  </div>
-                </div>
-              </Link>
-            </section>
+          <div className="mb-12 sticky top-0 bg-gray-50/90 dark:bg-gray-900/90 py-4 z-10 backdrop-blur-sm">
+            <div className="relative mb-6 max-w-xl mx-auto">
+              <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
+              <Input
+                type="text"
+                placeholder="Search articles..."
+                className="pl-12 w-full h-12 rounded-full shadow-sm"
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+              />
+            </div>
+
+            <div className="flex justify-center flex-wrap gap-2">
+              {categories.map((category) => (
+                <Button
+                  key={category}
+                  variant={filter === category ? "default" : "outline"}
+                  onClick={() => setFilter(category)}
+                  className="rounded-full"
+                >
+                  {category}
+                </Button>
+              ))}
+            </div>
+          </div>
+
+          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-8 font-poppins">
+            {filter === "All" ? "All Articles" : `Category: ${filter}`}
+            <span className="text-base font-normal text-muted-foreground ml-2">({filteredPosts.length} posts)</span>
+          </h2>
+
+          {filteredPosts.length > 0 ? (
+            <motion.div
+              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {filteredPosts.map((post) => (
+                <BlogCard key={post.slug} post={post} />
+              ))}
+            </motion.div>
+          ) : (
+            <div className="text-center py-16">
+                <p className="text-xl text-gray-500 dark:text-gray-400">No articles found.</p>
+                <p className="mt-2 text-muted-foreground">Try adjusting your search or filter.</p>
+            </div>
           )}
 
-          {/* Other Posts List */}
-          {otherPosts.length > 0 && (
-            <section>
-                <h2 className="text-3xl font-bold text-gray-900 mb-8 font-poppins">More Articles</h2>
-                <div className="space-y-12">
-                  {otherPosts.map((post) => (
-                    <Link to={post.link} key={post.link} className="block group">
-                      <div className="grid md:grid-cols-3 gap-8 items-center bg-white p-6 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300">
-                        <div className="md:col-span-1 overflow-hidden rounded-lg">
-                           <img 
-                              src={post.imageUrl} 
-                              alt={post.title} 
-                              className="w-full h-full object-cover aspect-video md:aspect-square transition-transform duration-500 group-hover:scale-105"
-                            />
-                        </div>
-                        <div className="md:col-span-2">
-                          <span className="text-xs font-semibold uppercase tracking-wider text-primary mb-2 inline-block">{post.category}</span>
-                          <h3 className="text-2xl font-bold text-gray-900 group-hover:text-primary transition-colors duration-300 mb-3 font-poppins">{post.title}</h3>
-                          <p className="text-gray-600 text-sm mb-4">{post.excerpt}</p>
-                          <div className="mt-auto pt-4 border-t border-gray-100 flex items-center text-xs text-gray-500">
-                            <span>{post.date}</span>
-                            <span className="mx-2">•</span>
-                            <span>{post.readTime}</span>
-                          </div>
-                        </div>
-                      </div>
-                    </Link>
-                  ))}
-                </div>
-            </section>
-          )}
+          <section className="mt-20">
+            <NewsletterCTA />
+          </section>
         </div>
-
       </main>
       <Footer />
     </>

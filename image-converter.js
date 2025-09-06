@@ -1,1 +1,30 @@
-import sharp from \'sharp\';\nimport fs from \'fs\';\nimport path from \'path\';\n\nconst imageDir = \'src/assets/products images\';\n\nfs.readdir(imageDir, (err, files) => {\n  if (err) {\n    console.error(\'Error reading directory:\', err);\n    return;\n  }\n\n  files.forEach(file => {\n    const filePath = path.join(imageDir, file);\n    if (/\.(jpg|jpeg|png)$/i.test(file)) {\n      const outputFilename = file.replace(/\.(jpg|jpeg|png)$/i, \'.webp\');\n      const outputPath = path.join(imageDir, outputFilename);\n\n      sharp(filePath)\n        .webp({ quality: 80 })\n        .toFile(outputPath, (err, info) => {\n          if (err) {\n            console.error(`Error converting ${file}:`, err);\n          } else {\n            console.log(`Converted ${file} to ${outputFilename}`);\n          }\n        });\n    }\n  });\n});\n
+import sharp from 'sharp';
+import fs from 'fs';
+import path from 'path';
+
+const imageDir = 'src/assets/products images';
+
+fs.readdir(imageDir, (err, files) => {
+  if (err) {
+    console.error('Error reading directory:', err);
+    return;
+  }
+
+  files.forEach(file => {
+    const filePath = path.join(imageDir, file);
+    if (/\.(jpg|jpeg|png)$/i.test(file)) {
+      const outputFilename = file.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      const outputPath = path.join(imageDir, outputFilename);
+
+      sharp(filePath)
+        .webp({ quality: 80 })
+        .toFile(outputPath, (err, info) => {
+          if (err) {
+            console.error(`Error converting ${file}:`, err);
+          } else {
+            console.log(`Converted ${file} to ${outputFilename}`);
+          }
+        });
+    }
+  });
+});
